@@ -12,7 +12,6 @@ namespace ConsoleApp12
             Console.WriteLine("Введите текст");
             string[] text = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             File.WriteAllLines(path, text);
-            int a = 0;
             using (StreamReader sr = new StreamReader(path))
             {
                 string line;
@@ -25,13 +24,13 @@ namespace ConsoleApp12
                 Console.WriteLine("Количество строк в массиве: " + count.ToString());
             }
             string[] newtext = new string[text.Length];
+            int a = 0;
             string path1 = @"D:\\TestFile14.txt";
             for (int i = 0; i < text.Length; i++)
             {
                 if (i % 2 == 0)
                 {
-                    int b = i;
-                    newtext[a] = text[b--];
+                    newtext[a] = text[i];
                     a++;
                 }
                 File.WriteAllLines(path1, newtext, Encoding.UTF8);
